@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Kolu Convert</string>
+
+    <string name="madhur">Madhur</string>
+    <string name="payyannur">Payyannur</string>
+    <string name="kolu">Kolu</string>
+    <string name="angula">Angula</string>
+    <string name="convert">Convert</string>
+    <string name="kolu_def_val">2.3528m</string>
+    <string name="feet">Feet</string>
+    <string name="sqft">Sq. Ft</string>
+    <string name="cuft">Cu. Ft</string>
+    <string name="inches">Inches</string>
+    <string name="meter">Meter</string>
+    <string name="sqmtr">Sq.mtr</string>
+    <string name="cumtr">Cu.mtr</string>
+</resources>
