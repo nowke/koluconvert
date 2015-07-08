@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ScrollView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +36,38 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setTabsFromPagerAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                super.onTabSelected(tab);
+                switch (tab.getPosition()) {
+                    case 0:
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+                        }
+                        toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        tabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        break;
+                    case 1:
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            getWindow().setStatusBarColor(getResources().getColor(R.color.material_purple_700));
+                        }
+                        toolbar.setBackgroundColor(getResources().getColor(R.color.material_purple_500));
+                        tabLayout.setBackgroundColor(getResources().getColor(R.color.material_purple_500));
+                        break;
+                    case 2:
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            getWindow().setStatusBarColor(getResources().getColor(R.color.material_blue_700));
+                        }
+                        toolbar.setBackgroundColor(getResources().getColor(R.color.material_blue_500));
+                        tabLayout.setBackgroundColor(getResources().getColor(R.color.material_blue_500));
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
 
 
     }

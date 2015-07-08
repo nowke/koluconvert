@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -77,14 +78,19 @@ public class FragmentKolu extends Fragment {
         String koluValStr = koluTextInput.getEditText().getText().toString();
         String angulaValStr = angulaTextInput.getEditText().getText().toString();
 
+        if (koluValStr.equals("") && (angulaValStr.equals("") || angulaValStr.equals("."))) {
+            return;
+        }
+
         // Set Kolu/Angula to zero if they're not specified
-        if (koluValStr.matches("")) {
+        if (koluValStr.equals("") || koluValStr.equals(".")) {
             koluValStr = "0";
         }
 
-        if (angulaValStr.matches("")) {
+        if (angulaValStr.equals("") || angulaValStr.equals(".")) {
             angulaValStr = "0";
         }
+
 
         // Convert strings to numbers
         Integer koluVal = Integer.parseInt(koluValStr);
@@ -115,7 +121,7 @@ public class FragmentKolu extends Fragment {
         Double finalMeters = koluDecimals * KOLU_FACTOR;
         Double precFinalMeters = Helpers.toFixed(finalMeters, 4);
 
-        resultText.setText(String.valueOf(precFinalMeters) + 'm');
+        resultText.setText(Html.fromHtml(String.valueOf(precFinalMeters) + "<small> m</small>"));
 
         Helpers.hideKeyboard(getActivity(), koluTextInput.getEditText());
         Helpers.hideKeyboard(getActivity(), angulaTextInput.getEditText());

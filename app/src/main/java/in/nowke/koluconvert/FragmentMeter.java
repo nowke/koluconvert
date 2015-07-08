@@ -3,6 +3,7 @@ package in.nowke.koluconvert;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,8 +85,8 @@ public class FragmentMeter extends Fragment {
     private void convertMeter(View v) {
         String editMeterStr = textInputMeter.getEditText().getText().toString();
 
-        if (editMeterStr.matches("")) {
-            editMeterStr = "0";
+        if (editMeterStr.equals("") || editMeterStr.equals(".")) {
+            return;
         }
 
         Double meterValue = Double.parseDouble(editMeterStr);
@@ -110,15 +111,15 @@ public class FragmentMeter extends Fragment {
                 Double pkangPart = Helpers.toFixed(pkolDecimalPart * 24, 1);
 
                 resultText1.setText(feetValueDecimalsPrec.toString() + "' = " + feetIntegerPart.toString() + "' " + inchPartPrec.toString() + "\"" );
-                resultText2.setText(mkolIntegerPart.toString() + "mk " + mkangPart.toString() + "ang");
-                resultText3.setText(pkolIntegerPart.toString() + "pk " + pkangPart.toString() + "ang");
+                resultText2.setText(Html.fromHtml(mkolIntegerPart.toString() + "<small> mk </small>" + mkangPart.toString() + "<small> ang</small>"));
+                resultText3.setText(Html.fromHtml(pkolIntegerPart.toString() + "<small> pk </small>" + pkangPart.toString() + "<small> ang</small>"));
 
                 break;
 
             case 2:
                 // Square Meter
                 Double sqmeterValue =  Helpers.toFixed(meterValue * 10.7639, 4);
-                resultText1.setText(sqmeterValue.toString() + " sq.ft");
+                resultText1.setText(Html.fromHtml(sqmeterValue.toString() + " <small>sq.ft</small>"));
                 resultText2.setText("");
                 resultText3.setText("");
 
@@ -127,7 +128,7 @@ public class FragmentMeter extends Fragment {
             case 3:
                 // Cubic Meter
                 Double cumeterValue = Helpers.toFixed(meterValue * 35.28, 4);
-                resultText1.setText(cumeterValue.toString() + " cu.ft");
+                resultText1.setText(Html.fromHtml(cumeterValue.toString() + " <small>cu.ft</small>"));
                 resultText2.setText("");
                 resultText3.setText("");
 

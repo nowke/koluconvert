@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 /**
@@ -24,6 +26,7 @@ public class FragmentFeet extends Fragment {
     TextInputLayout textInputFeet;
     TextInputLayout textInputInch;
     TextView resultText;
+    ScrollView scrollView;
 
     private static int MODE_FOOT = 1;
     private static int MODE_SQFT = 2;
@@ -66,16 +69,16 @@ public class FragmentFeet extends Fragment {
                 switch (checkedId) {
                     case R.id.radio_feet:
                         FEETMODE = MODE_FOOT;
-                        textInputInch.getEditText().setEnabled(true);
+                        textInputInch.setVisibility(View.VISIBLE);
                         break;
 
                     case R.id.radio_sqft:
-                        FEETMODE = MODE_SQFT;
-                        textInputInch.getEditText().setEnabled(false);
+                        FEETMODE = MODE_SQFT;;
+                        textInputInch.setVisibility(View.INVISIBLE);
                         break;
                     case R.id.radio_cuft:
                         FEETMODE = MODE_CUFT;
-                        textInputInch.getEditText().setEnabled(false);
+                        textInputInch.setVisibility(View.INVISIBLE);
                         break;
                 }
                 convertFeet(group.findViewById(checkedId));
@@ -87,14 +90,18 @@ public class FragmentFeet extends Fragment {
     }
 
     private void convertFeet(View v) {
-        String editFeetStr = textInputFeet.getEditText().getText().toString();
-        String editInchStr = textInputInch.getEditText().getText().toString();
+        String editFeetStr = textInputFeet.getEditText().getText().toString().trim();
+        String editInchStr = textInputInch.getEditText().getText().toString().trim();
 
-        if (editFeetStr.matches("")) {
+        if ((editFeetStr.equals("") || editFeetStr.equals(".")) && (editInchStr.equals("") || editInchStr.equals("."))) {
+            return;
+        }
+
+        if (editFeetStr.equals("") || editFeetStr.equals(".")) {
             editFeetStr = "0";
         }
 
-        if(editInchStr.matches("")) {
+        if(editInchStr.equals("") || editInchStr.equals(".")) {
             editInchStr = "0";
         }
 
@@ -117,26 +124,25 @@ public class FragmentFeet extends Fragment {
                 Double meterValue = feetDecimals / 3.28;
 
                 Double meterValuePrec = Helpers.toFixed(meterValue, 4);
-                resFeet = String.valueOf(meterValuePrec) + " m";
+                resultText.setText(Html.fromHtml(String.valueOf(meterValuePrec) + "<small> m</small>"));
                 break;
 
             case 2:
                 // Square Feet
                 Double squareMeter = (1 / 10.7639) * feetValue;
                 Double squareMeterPrec = Helpers.toFixed(squareMeter, 4);
-                resFeet = String.valueOf(squareMeterPrec) + " m²";
+                resultText.setText(Html.fromHtml(String.valueOf(squareMeterPrec) + "<small> m²</small"));
                 break;
 
             case 3:
                 // Cubic Feet
                 Double cubicMeter = (1 / 35.28) * feetValue;
                 Double cubicMeterPrec = Helpers.toFixed(cubicMeter, 4);
-                resFeet = String.valueOf(cubicMeterPrec) + " m³";
+                resultText.setText(Html.fromHtml(String.valueOf(cubicMeterPrec) + "<small> m³</small>"));
                 break;
             default:
-                resFeet = "";
+                break;
         }
-        resultText.setText(resFeet);
         Helpers.hideKeyboard(getActivity(), textInputFeet.getEditText());
         Helpers.hideKeyboard(getActivity(), textInputInch.getEditText());
     }
