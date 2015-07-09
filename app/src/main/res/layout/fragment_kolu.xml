@@ -99,7 +99,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text=""
-            android:textSize="48sp" />
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/textKolu2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/textKolu3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:textSize="32sp" />
 
 
     </LinearLayout>

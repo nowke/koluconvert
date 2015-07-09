@@ -26,6 +26,8 @@ public class FragmentKolu extends Fragment {
     TextInputLayout angulaTextInput;
     RadioGroup koluTypeRadio;
     TextView resultText;
+    TextView resultTextFeet;
+    TextView resultTextKolu;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class FragmentKolu extends Fragment {
         angulaTextInput = (TextInputLayout) rootView.findViewById(R.id.textinput_angula);
         koluTypeRadio = (RadioGroup) rootView.findViewById(R.id.madhur_payyannur_radio);
         resultText = (TextView) rootView.findViewById(R.id.textKolu);
+        resultTextFeet = (TextView) rootView.findViewById(R.id.textKolu2);
+        resultTextKolu = (TextView) rootView.findViewById(R.id.textKolu3);
 
         convert = (Button) rootView.findViewById(R.id.buttonConvertKolu);
         convert.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +66,8 @@ public class FragmentKolu extends Fragment {
                 convertKolu(group.findViewById(checkedId));
             }
         });
+
+
         return rootView;
     }
 
@@ -121,7 +127,31 @@ public class FragmentKolu extends Fragment {
         Double finalMeters = koluDecimals * KOLU_FACTOR;
         Double precFinalMeters = Helpers.toFixed(finalMeters, 4);
 
+        Double feetValueDecimals = finalMeters * 3.28;
+        Integer feetIntegerPart = feetValueDecimals.intValue();
+        Double feetDecimalPart = feetValueDecimals - feetIntegerPart;
+        Double inchPartPrec = Helpers.toFixed(feetDecimalPart * 12, 1);
+        Double feetValueDecimalsPrec = Helpers.toFixed(feetValueDecimals, 2);
+
+        Double mkolValueDecimals = (1 / 0.743) * finalMeters;
+        Integer mkolIntegerPart = mkolValueDecimals.intValue();
+        Double mkolDecimalPart = mkolValueDecimals - mkolIntegerPart;
+        Double mkangPart = Helpers.toFixed(mkolDecimalPart * 24, 1);
+
+        Double pkolValueDecimals = (1 / 0.7114) * finalMeters;
+        Integer pkolIntegerPart = pkolValueDecimals.intValue();
+        Double pkolDecimalPart = pkolValueDecimals - pkolIntegerPart;
+        Double pkangPart = Helpers.toFixed(pkolDecimalPart * 24, 1);
+
         resultText.setText(Html.fromHtml(String.valueOf(precFinalMeters) + "<small> m</small>"));
+        resultTextFeet.setText(Html.fromHtml(feetValueDecimalsPrec.toString() + "' = " + feetIntegerPart.toString() + "' " + inchPartPrec.toString() + "\"" ));
+
+        if (KOLU_FACTOR.equals(MADHUR_KOLU_FACTOR)) {
+            resultTextKolu.setText(Html.fromHtml(pkolIntegerPart.toString() + "<small> pk </small>" + pkangPart.toString() + "<small> ang</small>"));
+        }
+        else if (KOLU_FACTOR.equals(PAYYANNUR_KOLU_FACTOR)) {
+            resultTextKolu.setText(Html.fromHtml(mkolIntegerPart.toString() + "<small> mk </small>" + mkangPart.toString() + "<small> ang</small>"));
+        }
 
         Helpers.hideKeyboard(getActivity(), koluTextInput.getEditText());
         Helpers.hideKeyboard(getActivity(), angulaTextInput.getEditText());

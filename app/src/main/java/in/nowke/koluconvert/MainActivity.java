@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     MyPagerAdapter adapter;
 
+    FragmentKolu fragmentKolu;
+    FragmentMeter fragmentMeter;
+    FragmentFeet fragmentFeet;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
+
         tabLayout.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -51,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            getWindow().setStatusBarColor(getResources().getColor(R.color.material_purple_700));
+                            getWindow().setStatusBarColor(getResources().getColor(R.color.material_orange_700));
                         }
-                        toolbar.setBackgroundColor(getResources().getColor(R.color.material_purple_500));
-                        tabLayout.setBackgroundColor(getResources().getColor(R.color.material_purple_500));
+                        toolbar.setBackgroundColor(getResources().getColor(R.color.material_orange_500));
+                        tabLayout.setBackgroundColor(getResources().getColor(R.color.material_orange_500));
                         break;
                     case 2:
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

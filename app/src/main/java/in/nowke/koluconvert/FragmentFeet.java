@@ -26,6 +26,8 @@ public class FragmentFeet extends Fragment {
     TextInputLayout textInputFeet;
     TextInputLayout textInputInch;
     TextView resultText;
+    TextView resultText2;
+    TextView resultText3;
     ScrollView scrollView;
 
     private static int MODE_FOOT = 1;
@@ -42,6 +44,8 @@ public class FragmentFeet extends Fragment {
         radioFeet = (RadioGroup) rootView.findViewById(R.id.feet_radio);
         convert = (Button) rootView.findViewById(R.id.buttonConvertFeet);
         resultText = (TextView) rootView.findViewById(R.id.textFeet);
+        resultText2 = (TextView) rootView.findViewById(R.id.textFeet2);
+        resultText3 = (TextView) rootView.findViewById(R.id.textFeet3);
 
         convert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +77,8 @@ public class FragmentFeet extends Fragment {
                         break;
 
                     case R.id.radio_sqft:
-                        FEETMODE = MODE_SQFT;;
+                        FEETMODE = MODE_SQFT;
+                        ;
                         textInputInch.setVisibility(View.INVISIBLE);
                         break;
                     case R.id.radio_cuft:
@@ -88,6 +93,7 @@ public class FragmentFeet extends Fragment {
 
         return rootView;
     }
+
 
     private void convertFeet(View v) {
         String editFeetStr = textInputFeet.getEditText().getText().toString().trim();
@@ -110,7 +116,7 @@ public class FragmentFeet extends Fragment {
 
         String resFeet;
 
-        if (inchValue >= 12) {
+        if (inchValue >= 12 && textInputInch.getVisibility() == View.VISIBLE) {
             Helpers.hideKeyboard(getActivity(), textInputInch.getEditText());
             Helpers.hideKeyboard(getActivity(), textInputFeet.getEditText());
             Snackbar.make(v, "Inch can't be 12 or more", Snackbar.LENGTH_LONG).show();
@@ -124,7 +130,21 @@ public class FragmentFeet extends Fragment {
                 Double meterValue = feetDecimals / 3.28;
 
                 Double meterValuePrec = Helpers.toFixed(meterValue, 4);
+
+                Double mkolValueDecimals = (1 / 0.743) * meterValuePrec;
+                Integer mkolIntegerPart = mkolValueDecimals.intValue();
+                Double mkolDecimalPart = mkolValueDecimals - mkolIntegerPart;
+                Double mkangPart = Helpers.toFixed(mkolDecimalPart * 24, 1);
+
+                Double pkolValueDecimals = (1 / 0.7114) * meterValuePrec;
+                Integer pkolIntegerPart = pkolValueDecimals.intValue();
+                Double pkolDecimalPart = pkolValueDecimals - pkolIntegerPart;
+                Double pkangPart = Helpers.toFixed(pkolDecimalPart * 24, 1);
+
+
                 resultText.setText(Html.fromHtml(String.valueOf(meterValuePrec) + "<small> m</small>"));
+                resultText2.setText(Html.fromHtml(mkolIntegerPart.toString() + "<small> mk </small>" + mkangPart.toString() + "<small> ang</small>"));
+                resultText3.setText(Html.fromHtml(pkolIntegerPart.toString() + "<small> pk </small>" + pkangPart.toString() + "<small> ang</small>"));
                 break;
 
             case 2:
@@ -132,6 +152,8 @@ public class FragmentFeet extends Fragment {
                 Double squareMeter = (1 / 10.7639) * feetValue;
                 Double squareMeterPrec = Helpers.toFixed(squareMeter, 4);
                 resultText.setText(Html.fromHtml(String.valueOf(squareMeterPrec) + "<small> m²</small"));
+                resultText2.setText("");
+                resultText3.setText("");
                 break;
 
             case 3:
@@ -139,6 +161,8 @@ public class FragmentFeet extends Fragment {
                 Double cubicMeter = (1 / 35.28) * feetValue;
                 Double cubicMeterPrec = Helpers.toFixed(cubicMeter, 4);
                 resultText.setText(Html.fromHtml(String.valueOf(cubicMeterPrec) + "<small> m³</small>"));
+                resultText2.setText("");
+                resultText3.setText("");
                 break;
             default:
                 break;
