@@ -1,7 +1,9 @@
 package `in`.nowke.koluconvert.models
 
+import `in`.nowke.koluconvert.common.Extensions.toFixed
+
 /**
- * Created by nowke on 27/06/17.
+ * FootUnit
  */
 class FootUnit(var foot: Double = 0.0, var inch: Double = 0.0) {
     var value: Double = 0.0
@@ -15,5 +17,9 @@ class FootUnit(var foot: Double = 0.0, var inch: Double = 0.0) {
         } else {
             this.foot.toInt() + (this.inch / 12)
         }
+    }
+
+    override fun toString(): String {
+        return "${value.toFixed(2)}\' = ${foot.toInt()}\' ${inch.toFixed(1)}\""
     }
 }

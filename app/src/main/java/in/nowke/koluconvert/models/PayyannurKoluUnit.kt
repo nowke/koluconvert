@@ -1,12 +1,12 @@
 package `in`.nowke.koluconvert.models
 
-import `in`.nowke.koluconvert.Helpers
+import `in`.nowke.koluconvert.common.Extensions.toFixed
 
 /**
- * Created by nowke on 27/06/17.
+ * PayyannurKoluUnit
  */
-class PayyannurKoluUnit(kolu: Double, angula: Double) : KoluUnit(kolu, angula) {
+class PayyannurKoluUnit(kolu: Double, angula: Double = 0.0) : KoluUnit(kolu, angula) {
     override fun toString(): String {
-        return "${Helpers.toFixed(kolu, 4)} pk ${Helpers.toFixed(kolu, 1)} ang"
+        return "${kolu.toInt()} pk ${angula.toFixed(1)} ang"
     }
 }
