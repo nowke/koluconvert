@@ -1,123 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin">
-
+        android:orientation="vertical">
 
         <RadioGroup
-            android:id="@+id/madhur_payyannur_radio"
+            android:id="@+id/radio_foot_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radio_madhur"
-                android:layout_width="0dp"
+                android:id="@+id/radio_foot_type_foot"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:checked="true"
-                android:text="@string/madhur" />
+                android:text="@string/radio_text_foot" />
 
             <RadioButton
-                android:id="@+id/radio_payyannur"
-                android:layout_width="0dp"
+                android:id="@+id/radio_foot_type_square"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/payyannur" />
+                android:text="@string/radio_text_square" />
+
+            <RadioButton
+                android:id="@+id/radio_foot_type_cube"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/radio_text_cubic" />
 
         </RadioGroup>
 
         <LinearLayout
-            android:baselineAligned="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:baselineAligned="false"
             android:orientation="horizontal">
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/textinput_kolu"
+                android:id="@+id/textinput_foot"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1">
 
                 <EditText
-                    android:id="@+id/edit_kolu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/kolu"
+                    android:hint="@string/hint_foot"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:selectAllOnFocus="true" />
-
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/textinput_angula"
+                android:id="@+id/textinput_inch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1">
 
                 <EditText
-                    android:id="@+id/edit_angula"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/angula"
+                    android:hint="@string/hint_inch"
                     android:imeOptions="actionDone"
                     android:inputType="numberDecimal"
                     android:selectAllOnFocus="true" />
-
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/buttonConvertKolu"
+            android:id="@+id/buttonConvertFoot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
             android:paddingBottom="20dp"
             android:paddingEnd="40dp"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
             android:paddingStart="40dp"
             android:paddingTop="20dp"
-            android:text="@string/convert"
-            tools:ignore="NewApi" />
+            android:text="@string/button_convert" />
 
         <TextView
-            android:id="@+id/textKolu"
+            android:id="@+id/textfoot_meter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text=""
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="12.90m"
             android:textSize="32sp" />
 
         <TextView
-            android:id="@+id/textKolu2"
+            android:id="@+id/textfoot_madhur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text=""
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="12 mk 12.2 ang"
             android:textSize="32sp" />
 
         <TextView
-            android:id="@+id/textKolu3"
+            android:id="@+id/textfoot_payyannur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text=""
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="12 pk 14.4 ang"
             android:textSize="32sp" />
-
 
     </LinearLayout>
-</ScrollView>
 
+</android.support.v4.widget.NestedScrollView>

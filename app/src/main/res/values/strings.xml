@@ -14,4 +14,31 @@
     <string name="meter">Meter</string>
     <string name="sqmtr">Sq.mtr</string>
     <string name="cumtr">Cu.mtr</string>
+
+    <string name="title_activity_main">Kolu Convert</string>
+    <string name="tab_text_kolu">Kolu</string>
+    <string name="tab_text_feet">Feet</string>
+    <string name="tab_text_meter">Meter</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- Kolu Fragment -->
+    <string name="kolu_madhur">Madhur</string>
+    <string name="kolu_payyannur">Payyannur</string>
+    <string name="hint_kolu">Kolu</string>
+    <string name="hint_angula">Angula</string>
+    <string name="button_convert">Convert</string>
+
+    <!-- Foot Fragment -->
+    <string name="radio_text_foot">Feet</string>
+    <string name="radio_text_square">Sq. ft</string>
+    <string name="radio_text_cubic">Cu. ft</string>
+    <string name="hint_foot">Feet</string>
+    <string name="hint_inch">Inches</string>
+
+    <!-- Meter Fragment -->
+    <string name="radio_meter_text_meter">Meter</string>
+    <string name="radio_meter_text_square">Sq.mtr</string>
+    <string name="radio_meter_text_cube">Cu.mtr</string>
+    <string name="hint_meter">Meter</string>
 </resources>
