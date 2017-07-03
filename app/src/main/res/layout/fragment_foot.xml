@@ -6,6 +6,7 @@
         <import type="in.nowke.koluconvert.models.Units" />
 
         <import type="android.view.View" />
+        <import type="android.text.InputType" />
 
         <variable
             name="footViewModel"
@@ -14,6 +15,7 @@
         <variable
             name="fragment"
             type="in.nowke.koluconvert.ui.foot.FootFragment" />
+
     </data>
 
     <android.support.v4.widget.NestedScrollView
@@ -79,7 +81,7 @@
                         android:afterTextChanged="@{() -> footViewModel.convert() }"
                         android:hint="@string/hint_foot"
                         android:imeOptions="actionNext"
-                        android:inputType="number"
+                        android:inputType="@{footViewModel.footType == Units.FOOT ? InputType.TYPE_CLASS_NUMBER : InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL}"
                         android:selectAllOnFocus="true"
                         android:text="@={footViewModel.foot}" />
                 </android.support.design.widget.TextInputLayout>
@@ -141,7 +143,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@{footViewModel.textMadhur}"
                 android:textSize="32sp"
-                android:visibility="@{footViewModel.footType == Units.FOOT ? View.VISIBLE : View.INVISIBLE}" />
+                android:visibility="@{textinputInch.visibility}" />
 
             <TextView
                 android:id="@+id/textfoot_payyannur"
@@ -152,7 +154,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@{footViewModel.textPayyannur}"
                 android:textSize="32sp"
-                android:visibility="@{footViewModel.footType == Units.FOOT ? View.VISIBLE : View.INVISIBLE}" />
+                android:visibility="@{textinputInch.visibility}" />
 
         </LinearLayout>
 

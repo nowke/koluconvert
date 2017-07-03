@@ -1,104 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/activity_horizontal_margin">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
+    <data>
+
+        <import type="in.nowke.koluconvert.models.Units" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="meterViewModel"
+            type="in.nowke.koluconvert.ui.meter.MeterViewModel" />
+
+        <variable
+            name="fragment"
+            type="in.nowke.koluconvert.ui.meter.MeterFragment" />
+
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin">
 
-        <RadioGroup
-            android:id="@+id/radio_meter_type"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/radio_meter_type_meter"
+            <RadioGroup
+                android:id="@+id/radio_meter_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="@string/radio_meter_text_meter" />
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radio_meter_type_square"
+                <RadioButton
+                    android:id="@+id/radio_meter_type_meter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="@{() -> meterViewModel.setMeterType(1)}"
+                    android:text="@string/radio_meter_text_meter" />
+
+                <RadioButton
+                    android:id="@+id/radio_meter_type_square"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> meterViewModel.setMeterType(2)}"
+                    android:text="@string/radio_meter_text_square" />
+
+                <RadioButton
+                    android:id="@+id/radio_meter_type_cube"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> meterViewModel.setMeterType(3)}"
+                    android:text="@string/radio_meter_text_cube" />
+
+            </RadioGroup>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textinput_meter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/radio_meter_text_square" />
+                android:layout_marginTop="8dp">
 
-            <RadioButton
-                android:id="@+id/radio_meter_type_cube"
-                android:layout_width="match_parent"
+                <EditText
+                    android:afterTextChanged="@{() -> meterViewModel.convert() }"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_meter"
+                    android:text="@={meterViewModel.meter}"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:onClick="@{() -> fragment.onClickConvert()}"
+                android:id="@+id/buttonConvertMeter"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/radio_meter_text_cube" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:paddingBottom="20dp"
+                android:paddingEnd="40dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:paddingStart="40dp"
+                android:paddingTop="20dp"
+                android:text="@string/button_convert" />
 
-        </RadioGroup>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/textinput_meter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <EditText
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textmeter_foot"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_meter"
-                android:imeOptions="actionDone"
-                android:inputType="number"
-                android:selectAllOnFocus="true" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{meterViewModel.textFoot}"
+                android:textSize="32sp" />
 
-        <Button
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/buttonConvertMeter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="16dp"
-            android:paddingBottom="20dp"
-            android:paddingEnd="40dp"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:paddingStart="40dp"
-            android:paddingTop="20dp"
-            android:text="@string/button_convert" />
+            <TextView
+                android:id="@+id/textmeter_madhur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{meterViewModel.textMadhur}"
+                android:visibility="@{meterViewModel.meterType == Units.METER ? View.VISIBLE : View.INVISIBLE}"
+                android:textSize="32sp" />
 
-        <TextView
-            android:id="@+id/textmeter_foot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="12 ft 4 in"
-            android:textSize="32sp" />
+            <TextView
+                android:id="@+id/textmeter_payyannur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{meterViewModel.textPayyannur}"
+                android:visibility="@{textmeterMadhur.visibility}"
+                android:textSize="32sp" />
 
-        <TextView
-            android:id="@+id/textmeter_madhur"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="12 mk 12.2 ang"
-            android:textSize="32sp" />
-
-        <TextView
-            android:id="@+id/textmeter_payyannur"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="12 pk 14.4 ang"
-            android:textSize="32sp" />
-
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

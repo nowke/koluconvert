@@ -17,7 +17,10 @@ class FootViewModel : ViewModel() {
     var textPayyannur: ObservableField<String> = ObservableField<String>()
 
     fun setFootType(type: Int) {
-        if (type == 1) footType.set(Units.FOOT)
+        if (type == 1) {
+            footType.set(Units.FOOT)
+            foot.set("")
+        }
         else if (type == 2) footType.set(Units.SQUARE_FEET)
         else footType.set(Units.CUBIC_FEET)
         convert()
