@@ -10,9 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 
 /**
- * FragmentMeter
+ * MeterFragment
  */
-class FragmentMeter : Fragment() {
+class MeterFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val rootView = container?.inflate(R.layout.fragment_meter)
@@ -20,8 +20,8 @@ class FragmentMeter : Fragment() {
     }
 
     companion object {
-        fun newInstance(): FragmentMeter {
-            return FragmentMeter()
+        fun newInstance(): MeterFragment {
+            return MeterFragment()
         }
     }
 }

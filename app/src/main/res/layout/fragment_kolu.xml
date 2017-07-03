@@ -9,7 +9,7 @@
 
         <variable
             name="fragment"
-            type="in.nowke.koluconvert.ui.kolu.FragmentKolu" />
+            type="in.nowke.koluconvert.ui.kolu.KoluFragment" />
     </data>
 
     <android.support.v4.widget.NestedScrollView
