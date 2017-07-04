@@ -68,63 +68,46 @@
                 android:layout_marginTop="8dp">
 
                 <EditText
-                    android:afterTextChanged="@{() -> meterViewModel.convert() }"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:afterTextChanged="@{() -> meterViewModel.convert() }"
                     android:hint="@string/hint_meter"
-                    android:text="@={meterViewModel.meter}"
                     android:imeOptions="actionDone"
                     android:inputType="numberDecimal"
-                    android:selectAllOnFocus="true" />
+                    android:selectAllOnFocus="true"
+                    android:text="@={meterViewModel.meter}" />
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:onClick="@{() -> fragment.onClickConvert()}"
                 android:id="@+id/buttonConvertMeter"
+                style="@style/ButtonConvertStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="16dp"
-                android:paddingBottom="20dp"
-                android:paddingEnd="40dp"
-                android:paddingLeft="40dp"
-                android:paddingRight="40dp"
-                android:paddingStart="40dp"
-                android:paddingTop="20dp"
+                android:onClick="@{() -> fragment.onClickConvert()}"
                 android:text="@string/button_convert" />
 
             <TextView
                 android:id="@+id/textmeter_foot"
+                style="@style/TextViewResultStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@{meterViewModel.textFoot}"
-                android:textSize="32sp" />
+                android:text="@{meterViewModel.textFoot}" />
 
             <TextView
                 android:id="@+id/textmeter_madhur"
+                style="@style/TextViewResultStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:text="@{meterViewModel.textMadhur}"
-                android:visibility="@{meterViewModel.meterType == Units.METER ? View.VISIBLE : View.INVISIBLE}"
-                android:textSize="32sp" />
+                android:visibility="@{meterViewModel.meterType == Units.METER ? View.VISIBLE : View.INVISIBLE}" />
 
             <TextView
                 android:id="@+id/textmeter_payyannur"
+                style="@style/TextViewResultStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:text="@{meterViewModel.textPayyannur}"
-                android:visibility="@{textmeterMadhur.visibility}"
-                android:textSize="32sp" />
+                android:visibility="@{textmeterMadhur.visibility}" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

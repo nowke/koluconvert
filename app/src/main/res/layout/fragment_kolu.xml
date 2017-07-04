@@ -96,49 +96,32 @@
 
             <Button
                 android:id="@+id/buttonConvertKolu"
+                style="@style/ButtonConvertStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:onClick="@{() -> fragment.onClickConvert()}"
-                android:paddingBottom="20dp"
-                android:paddingEnd="40dp"
-                android:paddingLeft="40dp"
-                android:paddingRight="40dp"
-                android:paddingStart="40dp"
-                android:paddingTop="20dp"
                 android:text="@string/button_convert" />
 
             <TextView
                 android:id="@+id/textkolu_meter"
+                style="@style/TextViewResultStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@{koluViewModel.textMeter}"
-                android:textSize="32sp" />
+                android:text="@{koluViewModel.textMeter}" />
 
             <TextView
                 android:id="@+id/textkolu_foot"
+                style="@style/TextViewResultStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@{koluViewModel.textFoot}"
-                android:textSize="32sp" />
+                android:text="@{koluViewModel.textFoot}" />
 
             <TextView
                 android:id="@+id/textkolu_kolu"
+                style="@style/TextViewResultStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@{koluViewModel.textKolu}"
-                android:textSize="32sp" />
+                android:text="@{koluViewModel.textKolu}" />
 
         </LinearLayout>
 

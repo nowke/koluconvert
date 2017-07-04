@@ -15,7 +15,25 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Convert Button style -->
+    <style name="ButtonConvertStyle" parent="Widget.AppCompat.Button.Small">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:paddingLeft">40dp</item>
+        <item name="android:paddingRight">40dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <!-- Result TextView style -->
+    <style name="TextViewResultStyle" parent="@android:style/Widget.TextView">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
 
 </resources>

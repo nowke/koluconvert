@@ -6,6 +6,7 @@
         <import type="in.nowke.koluconvert.models.Units" />
 
         <import type="android.view.View" />
+
         <import type="android.text.InputType" />
 
         <variable
@@ -110,50 +111,33 @@
 
             <Button
                 android:id="@+id/buttonConvertFoot"
+                style="@style/ButtonConvertStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:onClick="@{() -> fragment.onClickConvert()}"
-                android:paddingBottom="20dp"
-                android:paddingEnd="40dp"
-                android:paddingLeft="40dp"
-                android:paddingRight="40dp"
-                android:paddingStart="40dp"
-                android:paddingTop="20dp"
                 android:text="@string/button_convert" />
 
             <TextView
                 android:id="@+id/textfoot_meter"
+                style="@style/TextViewResultStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@{footViewModel.textMeter}"
-                android:textSize="32sp" />
+                android:text="@{footViewModel.textMeter}" />
 
             <TextView
                 android:id="@+id/textfoot_madhur"
+                style="@style/TextViewResultStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:text="@{footViewModel.textMadhur}"
-                android:textSize="32sp"
                 android:visibility="@{textinputInch.visibility}" />
 
             <TextView
                 android:id="@+id/textfoot_payyannur"
+                style="@style/TextViewResultStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:text="@{footViewModel.textPayyannur}"
-                android:textSize="32sp"
                 android:visibility="@{textinputInch.visibility}" />
 
         </LinearLayout>
