@@ -1,6 +1,8 @@
 # koluconvert
 Local measure  'Kolu' converter app
 
+[![Build Status](https://travis-ci.org/nowke/koluconvert.svg?branch=master)](https://travis-ci.org/nowke/koluconvert)
+
 # Download APK
 [Click here](/..//master/app/in.nowke.koluconvert.apk?raw=true)
 
