@@ -20,14 +20,15 @@ android:
   components:
     - tools
     - platform-tools
-    - build-tools-$ANDROID_BUILD_TOOLS
-    - android-$ANDROID_API
-    - android-$EMULATOR_API_LEVEL
+    - build-tools-26.0.0
+    - android-26
+    - android-25
     - extra-google-m2repository
     - extra-android-m2repository # for design library
-    - addon-google_apis-google-19 # google play services
-    - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
-    - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
+    - addon-google_apis-google-26 # google play services
+    - addon-google_apis-google-25 # google play services
+    - sys-img-armeabi-v7a-addon-google_apis-google-26
+    - sys-img-armeabi-v7a-addon-google_apis-google-25
   licenses:
     - android-sdk-preview-license-.+
     - android-sdk-license-.+
@@ -38,6 +39,7 @@ before_install:
   - chmod +x gradlew
 
 before_script:
+  - android list targets
   - echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
