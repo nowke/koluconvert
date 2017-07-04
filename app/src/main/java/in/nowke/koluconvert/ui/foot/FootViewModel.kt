@@ -52,12 +52,12 @@ class FootViewModel : ViewModel() {
 
     private fun calcMadhur(): String {
         val koluValue: Double = Conversion.convert(getFootUnit().value, footType.get(), Units.MADHUR_KOLU)
-        return PayyannurKoluUnit(koluValue).toString()
+        return MadhurKoluUnit(koluValue).toString()
     }
 
     private fun calcPayyannur(): String {
         val koluValue: Double = Conversion.convert(getFootUnit().value, footType.get(), Units.PAYYANNUR_KOLU)
-        return MadhurKoluUnit(koluValue).toString()
+        return PayyannurKoluUnit(koluValue).toString()
     }
 
     private fun getFootUnit(): FootUnit {

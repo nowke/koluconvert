@@ -45,17 +45,16 @@ class MeterViewModel: ViewModel() {
                 return ""
             }
         }
-
     }
 
     private fun calcMadhur(): String {
         val koluValue: Double = Conversion.convert(getMeterUnit(), meterType.get(), Units.MADHUR_KOLU)
-        return PayyannurKoluUnit(koluValue).toString()
+        return MadhurKoluUnit(koluValue).toString()
     }
 
     private fun calcPayyannur(): String {
         val koluValue: Double = Conversion.convert(getMeterUnit(), meterType.get(), Units.PAYYANNUR_KOLU)
-        return MadhurKoluUnit(koluValue).toString()
+        return PayyannurKoluUnit(koluValue).toString()
     }
 
     private fun getMeterUnit(): Double {
