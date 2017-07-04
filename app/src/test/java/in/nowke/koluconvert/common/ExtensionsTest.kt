@@ -3,7 +3,7 @@ package `in`.nowke.koluconvert.common
 import `in`.nowke.koluconvert.common.Extensions.toFixed
 import `in`.nowke.koluconvert.common.Extensions.toDoubleFixed
 
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.experimental.runners.Enclosed
 import org.junit.runner.RunWith
@@ -34,7 +34,7 @@ class ExtensionsTest {
         @Test
         fun test_to_fixed_double() {
             val myNumber: Double = doubleValue
-            assertEquals(expectedValue, myNumber.toFixed(precision))
+            assertEquals(expectedValue, myNumber.toFixed(precision), 0.0)
         }
     }
 
@@ -58,7 +58,7 @@ class ExtensionsTest {
         @Test
         fun test_string_to_double() {
             val myStr: String? = stringValue
-            assertEquals(expectedDoubleValue, myStr.toDoubleFixed())
+            assertEquals(expectedDoubleValue, myStr.toDoubleFixed(), 0.0)
         }
     }
 }

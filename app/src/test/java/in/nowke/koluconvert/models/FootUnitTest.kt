@@ -2,7 +2,7 @@ package `in`.nowke.koluconvert.models
 
 import `in`.nowke.koluconvert.common.Extensions.toFixed
 
-import junit.framework.TestCase.assertEquals
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.experimental.runners.Enclosed
 import org.junit.runner.RunWith
@@ -33,7 +33,7 @@ class FootUnitTest {
         fun foot_inch_to_foot_decimal() {
             val footUnit: FootUnit = FootUnit(foot, inch)
             val expectedRepresentationText = "${expectedFootInDecimal.toFixed(2)}\' = ${foot.toInt()}\' ${inch.toFixed(1)}\""
-            assertEquals(expectedFootInDecimal, footUnit.value.toFixed(2))
+            assertEquals(expectedFootInDecimal, footUnit.value.toFixed(2), 0.0)
             assertEquals(expectedRepresentationText, footUnit.toString())
         }
     }
@@ -57,10 +57,9 @@ class FootUnitTest {
         fun foot_decimal_to_foot_inch() {
             val footUnit: FootUnit = FootUnit(footDecimal)
             val expectedRepresentationText = "${footDecimal.toFixed(2)}\' = ${expectedFoot.toInt()}\' ${expectedInch.toFixed(1)}\""
-            assertEquals(expectedFoot, footUnit.foot.toFixed(2))
-            assertEquals(expectedInch, footUnit.inch.toFixed(2))
+            assertEquals(expectedFoot, footUnit.foot.toFixed(2), 0.0)
+            assertEquals(expectedInch, footUnit.inch.toFixed(2), 0.0)
             assertEquals(expectedRepresentationText, footUnit.toString())
         }
     }
-
 }

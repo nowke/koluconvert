@@ -2,7 +2,7 @@ package `in`.nowke.koluconvert.models
 
 import `in`.nowke.koluconvert.common.Extensions.toFixed
 
-import junit.framework.TestCase.assertEquals
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.experimental.runners.Enclosed
 import org.junit.runner.RunWith

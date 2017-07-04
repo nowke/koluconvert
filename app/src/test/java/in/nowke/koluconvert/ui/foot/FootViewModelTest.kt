@@ -3,8 +3,7 @@ package `in`.nowke.koluconvert.ui.foot
 import `in`.nowke.koluconvert.models.Units
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
-import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertNull
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

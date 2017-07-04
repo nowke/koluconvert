@@ -2,7 +2,7 @@ package `in`.nowke.koluconvert.models
 
 import `in`.nowke.koluconvert.common.Extensions.toFixed
 
-import junit.framework.TestCase.assertEquals
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.experimental.runners.Enclosed
 import org.junit.runner.RunWith
@@ -33,7 +33,7 @@ class PayyannurKoluUnitTest {
         fun payyannur_kolu_angula_to_decimal() {
             val koluUnit: PayyannurKoluUnit = PayyannurKoluUnit(kolu, angula)
             val expectedRepresentationText = "${kolu.toInt()} pk ${angula.toFixed(1)} ang"
-            assertEquals(expectedKoluInDecimal, koluUnit.value.toFixed(2))
+            assertEquals(expectedKoluInDecimal, koluUnit.value.toFixed(2), 0.0)
             assertEquals(expectedRepresentationText, koluUnit.toString())
         }
     }
@@ -57,8 +57,8 @@ class PayyannurKoluUnitTest {
         fun payyannur_kolu_decimal_to_kolu_angula() {
             val koluUnit: PayyannurKoluUnit = PayyannurKoluUnit(koluDecimal)
             val expectedRepresentationText = "${koluUnit.kolu.toInt()} pk ${koluUnit.angula.toFixed(1)} ang"
-            assertEquals(expectedKolu, koluUnit.kolu.toFixed(2))
-            assertEquals(expectedAngula, koluUnit.angula.toFixed(1))
+            assertEquals(expectedKolu, koluUnit.kolu.toFixed(2), 0.0)
+            assertEquals(expectedAngula, koluUnit.angula.toFixed(1), 0.0)
             assertEquals(expectedRepresentationText, koluUnit.toString())
         }
     }
