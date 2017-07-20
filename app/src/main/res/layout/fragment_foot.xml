@@ -77,6 +77,7 @@
                     android:layout_weight="1">
 
                     <EditText
+                        android:id="@+id/edittext_foot"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:afterTextChanged="@{() -> footViewModel.convert() }"
@@ -97,6 +98,7 @@
                     android:visibility="@{footViewModel.footType == Units.FOOT ? View.VISIBLE : View.INVISIBLE}">
 
                     <EditText
+                        android:id="@+id/edittext_inch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:afterTextChanged="@{() -> footViewModel.convert()}"

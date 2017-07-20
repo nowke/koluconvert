@@ -62,6 +62,7 @@
                     android:layout_weight="1">
 
                     <EditText
+                        android:id="@+id/edittext_kolu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:afterTextChanged="@{() -> koluViewModel.convert() }"
@@ -81,6 +82,7 @@
                     android:layout_weight="1">
 
                     <EditText
+                        android:id="@+id/edittext_angula"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:afterTextChanged="@{() -> koluViewModel.convert()}"

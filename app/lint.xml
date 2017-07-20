@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="GoogleAppIndexingWarning" severity="ignore" />
+    <issue id="UnusedResources">
+        <ignore path="**/res/layout/*.xml" />
+        <ignore path="**/res/values/colors.xml" />
+        <ignore path="**/res/values/dimens.xml" />
+        <ignore path="**/res/values/strings.xml" />
+        <ignore path="**/res/values/styles.xml" />
+    </issue>
+</lint>
