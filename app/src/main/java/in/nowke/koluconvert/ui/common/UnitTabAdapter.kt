@@ -13,7 +13,7 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.graphics.ColorUtils
 
 /**
- * UnitTabAdapter
+ * Adapter for Conversion type ViewPager and TabLayout
  */
 class UnitTabAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
@@ -32,6 +32,14 @@ class UnitTabAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         return 3
     }
 
+    /**
+     * Gets the color for a Tab at certain position and offset
+     *
+     * @param position the index of the tab
+     * @param positionOffset the offset between <code>0</code> to <code>1</code>
+     * @param context the context this is running in
+     * @return {@link ColorSet} set of two colors - primary and primary-dark
+     */
     fun getTabColor(position: Int, positionOffset: Float, context: Context): ColorSet {
         val color1: Int = ContextCompat.getColor(context, R.color.colorPrimary)
         val color1Dark: Int = ContextCompat.getColor(context, R.color.colorPrimaryDark)

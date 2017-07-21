@@ -10,7 +10,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
 /**
- * ExtensionsTest
+ * Extensions test
  */
 @RunWith(Enclosed::class)
 class ExtensionsTest {

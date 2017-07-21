@@ -11,7 +11,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 /**
- * KoluFragmentTest
+ * Kolu fragment tests
  */
 @RunWith(AndroidJUnit4::class)
 class KoluFragmentTest : BaseTest() {

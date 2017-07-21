@@ -1,7 +1,7 @@
 package `in`.nowke.koluconvert.models
 
 /**
- * Units
+ * Units enum
  */
 enum class Units(var factor: Double, var suffix: String, var precision: Int) {
     METER(1.0, " m", 4),

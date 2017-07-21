@@ -18,6 +18,14 @@ class KoluViewModel : ViewModel() {
     var textFoot: ObservableField<String> = ObservableField<String>()
     var textKolu: ObservableField<String> = ObservableField<String>()
 
+    /**
+     * Sets Kolu type
+     *
+     * [type] values are:
+     * 1 - **Madhur Kolu**, 2 - **Payyannur Kolu**
+     *
+     * @param type the type value
+     */
     fun setKoluType(type: Int) {
         if (type == 1) koluType.set(Units.MADHUR_KOLU)
         else koluType.set(Units.PAYYANNUR_KOLU)

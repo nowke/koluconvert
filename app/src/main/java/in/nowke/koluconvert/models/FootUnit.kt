@@ -3,7 +3,7 @@ package `in`.nowke.koluconvert.models
 import `in`.nowke.koluconvert.common.Extensions.toFixed
 
 /**
- * FootUnit
+ * FootUnit model
  */
 class FootUnit(var foot: Double = 0.0, var inch: Double = 0.0) {
     var value: Double = 0.0

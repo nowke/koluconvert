@@ -11,7 +11,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 /**
- * MeterViewModelTest
+ * MeterViewModel test
  */
 @RunWith(JUnit4::class)
 class MeterViewModelTest {

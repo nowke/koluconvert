@@ -1,7 +1,7 @@
 package `in`.nowke.koluconvert.models
 
 /**
- * KoluUnit
+ * KoluUnit Model
  */
 open class KoluUnit(var kolu: Double = 0.0, var angula: Double = 0.0) {
     var value: Double = 0.0

@@ -12,7 +12,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 /**
- * MeterFragmentTest
+ * Meter fragment tests
  */
 @RunWith(AndroidJUnit4::class)
 class MeterFragmentTest : BaseTest() {

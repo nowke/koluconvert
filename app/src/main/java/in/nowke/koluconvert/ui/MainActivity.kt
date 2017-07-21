@@ -10,6 +10,9 @@ import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+/**
+ * Main Activity
+ */
 class MainActivity : AppCompatActivity() {
 
     private var adapter: UnitTabAdapter? = null
@@ -21,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         setupUI()
     }
 
+    /**
+     * Setup UI elements - ViewPager adapter, bind tabs
+     */
     private fun setupUI() {
         adapter = UnitTabAdapter(supportFragmentManager)
         container.adapter = adapter

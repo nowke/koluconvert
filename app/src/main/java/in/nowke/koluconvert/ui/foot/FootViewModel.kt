@@ -16,13 +16,23 @@ class FootViewModel : ViewModel() {
     var textMadhur: ObservableField<String> = ObservableField<String>()
     var textPayyannur: ObservableField<String> = ObservableField<String>()
 
+    /**
+     * Sets Foot type
+     *
+     * [type] values are:
+     * 1 - **Foot**, 2 - **Square feet**, 3 - **Cubic feet**
+     *
+     * @param type the type value
+     */
     fun setFootType(type: Int) {
         if (type == 1) {
             footType.set(Units.FOOT)
             foot.set("")
+        } else if (type == 2) {
+            footType.set(Units.SQUARE_FEET)
+        } else {
+            footType.set(Units.CUBIC_FEET)
         }
-        else if (type == 2) footType.set(Units.SQUARE_FEET)
-        else footType.set(Units.CUBIC_FEET)
         convert()
     }
 
@@ -33,7 +43,7 @@ class FootViewModel : ViewModel() {
     }
 
     private fun calcMeters(): String {
-        when(footType.get()) {
+        when (footType.get()) {
             Units.FOOT -> {
                 return Conversion.convertToText(getFootUnit().value, Units.FOOT, Units.METER)
             }

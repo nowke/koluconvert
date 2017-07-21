@@ -9,13 +9,21 @@ import android.databinding.ObservableField
 /**
  * MeterViewModel
  */
-class MeterViewModel: ViewModel() {
+class MeterViewModel : ViewModel() {
     var meter: ObservableField<String> = ObservableField<String>()
     var meterType: ObservableField<Units> = ObservableField<Units>(Units.METER)
     var textFoot: ObservableField<String> = ObservableField<String>()
     var textMadhur: ObservableField<String> = ObservableField<String>()
     var textPayyannur: ObservableField<String> = ObservableField<String>()
 
+    /**
+     * Sets meter type
+     *
+     * [type] values are:
+     * 1 - **Meter**, 2 - **Square meter**, 3 - **Cubic meter**
+     *
+     * @param type the type value
+     */
     fun setMeterType(type: Int) {
         if (type == 1) meterType.set(Units.METER)
         else if (type == 2) meterType.set(Units.SQUARE_METER)
@@ -30,7 +38,7 @@ class MeterViewModel: ViewModel() {
     }
 
     private fun calcFoot(): String {
-        when(meterType.get()) {
+        when (meterType.get()) {
             Units.METER -> {
                 val footValue: Double = Conversion.convert(getMeterUnit(), Units.METER, Units.FOOT)
                 return FootUnit(footValue).toString()
