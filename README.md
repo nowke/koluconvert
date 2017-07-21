@@ -7,7 +7,7 @@ Local measure 'Kolu' converter app
 [![Andriod Min SDK](https://img.shields.io/badge/Min_SDK-15-blue.svg)](app/build.gradle)
 
 ## Download APK
-[Kolu Convert v2.0](/..//master/app/in.nowke.koluconvert_2_0.apk?raw=true)
+[Kolu Convert v2.0](https://github.com/nowke/koluconvert/releases/download/v2.0/in.nowke.koluconvert_2_0.apk)
 
 ## Screenshots
 
